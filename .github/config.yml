@@ -1,0 +1,20 @@
+# Configuration for request-info - https://github.com/behaviorbot/request-info
+
+# *Required* Comment to reply with
+requestInfoReplyComment: >
+  Hi there @{issue-author} :wave:!
+
+  We would appreciate it if you could provide us with more info about this issue/pr!
+  This helps people review your contribution and answer questions more quickly and
+  also people from the future who are looking for some quick context around this set of changes.
+
+  Thanks! :heart:
+
+# *OPTIONAL* default titles to check against for lack of descriptiveness
+# MUST BE ALL LOWERCASE
+requestInfoDefaultTitles:
+  - update readme.md
+  - updates
+
+# *OPTIONAL* Label to be added to Issues and Pull Requests with insufficient information given
+requestInfoLabelToAdd: needs-more-info
