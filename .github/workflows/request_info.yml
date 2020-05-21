@@ -10,8 +10,8 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log(context.issue.body);
-            if (context.payload.body == null) {
+            console.log(context.payload.issue.body);
+            if (!context.payload.issue.body) {
                 github.issues.createComment({
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
