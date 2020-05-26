@@ -1,21 +1,35 @@
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
-  comment:
+  request-more-info:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v1
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log(context.payload.issue.body);
-            if (!context.payload.issue.body) {
-                github.issues.createComment({
-                  issue_number: context.issue.number,
+            var msg = `Hi there :wave:!`
+
+            if (context.eventName === 'pull_request') {
+              if (!context.payload.pull_request.body) {
+                github.pulls.createComment({
+                  pull_number: context.pull.number,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  body: '👋 Please provide more info!'
+                  body: msg
                 })
+              }
+            } else {
+              if (!context.payload.issue.body) {
+                  github.issues.createComment({
+                    issue_number: context.issue.number,
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    body: msg
+                  })
+              }
             }
