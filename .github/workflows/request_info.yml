@@ -1,8 +1,8 @@
 on:
   issues:
-    types: [opened, reopened]
+    types: [opened, reopened, edited]
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, edited]
 
 jobs:
   request-more-info:
@@ -48,4 +48,17 @@ jobs:
                   repo: context.repo.repo,
                   labels: ['needs-more-info']
                 })
+            } else {
+              label = github.issues.getLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name: 'needs-more-info'
+                })
+              if(label) {
+                github.issues.deleteLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: 'needs-more-info'
+                })  
+              }
             }
