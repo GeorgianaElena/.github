@@ -1,3 +1,3 @@
 # .github
 
-Test gihub actions, bots, templates :D
+Test gihub actions, bots, templates
