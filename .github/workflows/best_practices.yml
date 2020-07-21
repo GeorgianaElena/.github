@@ -13,7 +13,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            var msg = `Did you know about our best-practices?`
+            var msg = `Hey :wave: Do you want to find out more about what are the best practices when running your event using mybinder.org?`
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
