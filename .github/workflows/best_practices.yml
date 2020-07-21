@@ -1,7 +1,7 @@
 name: Show best-practices
 on: 
   issues:
-    types: [opened]
+    types: [labeled]
 
 jobs:
   comment_on_impact_issues:
