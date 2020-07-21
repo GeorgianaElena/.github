@@ -1,0 +1,22 @@
+name: Show best-practices
+on: 
+  issues:
+    types: [opened]
+
+jobs:
+  comment_on_impact_issues:
+    if: |
+      github.event.issue.label == 'impact'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@0.6.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            var msg = `Did you know about our best-practices?`
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: msg
+            })
