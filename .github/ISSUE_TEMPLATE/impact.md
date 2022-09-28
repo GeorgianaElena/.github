@@ -1,5 +1,5 @@
 ---
-name: "\U0001F4C8 Impact issue"
+name: "📓 Impact issue"
 about: Testing best practices GHA.
 labels: impact
 
