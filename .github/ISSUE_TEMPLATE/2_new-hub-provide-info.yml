@@ -6,11 +6,11 @@ body:
 - type: markdown
   attributes:
   value: |
-  # Ask for a new 2i2c JupyterHub!
+    # Ask for a new 2i2c JupyterHub!
 
-  This template is designed to help you provide information about your 2i2c Hub so that a 2i2c Engineer can set it up properly. Answer the sections below as best you can. We can update information as we learn more.
+    This template is designed to help you provide information about your 2i2c Hub so that a 2i2c Engineer can set it up properly. Answer the sections below as best you can. We can update information as we learn more.
 
-  # Community Information
+    # Community Information
 
 - type: textarea
   id: important-dates
