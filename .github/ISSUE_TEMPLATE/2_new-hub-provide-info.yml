@@ -24,4 +24,10 @@ body:
         - **Any important dates for usage**: <!-- For example - exams, periods of heavy usage, etc. -->
     validations:
       required: true
-  
+
+  - type: markdown
+    attributes:
+      value: |
+        # Infrastructure customization
+        It is possible to customize the user image for the hub, as long as the image is in a public registry.
+   
