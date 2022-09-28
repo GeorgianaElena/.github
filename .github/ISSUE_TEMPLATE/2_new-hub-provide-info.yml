@@ -64,7 +64,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Hub landing page logo information
+        # Hub landing page logo information
         The hub landing page can have a specific logo and a link attached to it.
 
   - type: input
@@ -88,7 +88,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Hub user image
+        # Hub user image
 
         It is possible to customize the user image for the hub, as long as the image is in a public registry. For example, a [quay.io registry image](https://quay.io/).
         See [the Infrastructure documentation on custom images](https://infrastructure.2i2c.org/en/latest/howto/customize/custom-image.html) for more information.
@@ -112,7 +112,7 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
+  - type: dropdown
     id: features
     attributes:
       label: Extra features you'd like to enable
@@ -124,17 +124,33 @@ body:
         - **Specific cloud provider or datacenter**: If you have restrictions about which cloud provider to use, and which data center the hub should live in (e.g. if it is next to a specific dataset).
         - **Dedicated Scalable Dask Cluster** with [Dask Gateway](https://gateway.dask.org/): if you have very large datasets or otherwise need high-performance parallelizable computing via the cloud.
         - **Dedicated Kubernetes cluster**: If you need to run the infrastructure on your own cloud account, or otherwise wish to have a dedicated cluster.
+      multiple: true
       options:
-        - label: Specific cloud provider or datacenter
+        - label: Specific cloud provider or datacenter (default is GCP)
         - label: Dedicated Kubernetes cluster
         - label: Scalable Dask Cluster
+    validations:
+      required: false
+
+   - type: dropdown
+    id: cloud-provider
+    attributes:
+      label: Preffered cloud provider
+      description: |
+        If you selected "Specific cloud provider or datacenter" option above, please select which one do you prefer.
+      options:
+        - GitHub (e.g., @mygithubhandle)
+        - Google (myemailaddress@gmail.org, or a Google-backed domain)
+        - Institutional Provider via CILogon (e.g., username@institution.org)
+        - Username / Password via auth0: https://auth0.com/docs/connections/database
+        - Other (may not be possible, please specify in comments)
     validations:
       required: false
 
   - type: textarea
     id: other-information
     attributes:
-      label: Other relevant information
+      label: Other relevant information to the features above
       description: |
         Provide any other relevant information that you think may be important to the 2i2c Engineering team to help deploy and customize your hub.
     validations:
