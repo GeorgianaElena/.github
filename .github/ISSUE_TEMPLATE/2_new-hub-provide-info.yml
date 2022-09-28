@@ -151,8 +151,8 @@ body:
 
         The fields below don't need to be filled out unless you are a 2i2c Hub Engineer.
         The Community Representative shouldn't worry about this section.
-
-    required: false
+    validations:
+      required: false
 
   - type: checkboxes
     id: tasks-to-deploy
