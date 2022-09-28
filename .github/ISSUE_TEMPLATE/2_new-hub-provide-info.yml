@@ -1,4 +1,4 @@
-name: 💻  New Hub - Information Provider
+name: 💻ℹ New Hub - Information Provider
 description: Provide information about creating a new hub for 2i2c to operate
 title: "[Information Provider] New Hub: {{ HUB NAME }}"
 labels: ["type: hub"]
@@ -137,7 +137,7 @@ body:
     attributes:
       label: (Optional) Preffered cloud provider
       description: |
-        If you selected the "Specific cloud provider or datacenter" extra option above, please select which one do you prefer.
+        If you selected the `Specific cloud provider or datacenter` extra option above, please select which one do you prefer.
       options:
         - No preference
         - GCP (preffered)
@@ -149,9 +149,9 @@ body:
   - type: dropdown
     id: billing-account
     attributes:
-      label: Billing and Cloud account
+      label: (Optional) Billing and Cloud account
       description: |
-        If you selected the "Dedicated Kubernetes cluster" extra option and require a dedicated Kubernetes cluster
+        If you selected the `Dedicated Kubernetes cluster` extra option and require a dedicated Kubernetes cluster
         on a cloud provider of your choice, please make sure the billing and cloud accounts are set up and enough permissions
         were granted to the 2i2c Engineers.
         Documentation about this topic can be found here https://docs.2i2c.org/en/latest/admin/howto/create-billing-account.html
