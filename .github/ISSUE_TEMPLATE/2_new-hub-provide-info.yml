@@ -1,4 +1,4 @@
-name: 💻  New Hub - Information Request
+name: 💻  New Hub - Information provide
 description: Request information from the Community Representative the new hub 2i2c will create and operate
 title: "[Information Request] New Hub: {{ HUB NAME }}"
 labels: ["type: hub"]
