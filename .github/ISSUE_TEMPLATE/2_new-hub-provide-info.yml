@@ -127,7 +127,7 @@ body:
       options:
         - label: Specific cloud provider or datacenter
         - label: Dedicated Kubernetes cluster
-        - lable: Scalable Dask Cluster
+        - label: Scalable Dask Cluster
     validations:
       required: false
 
