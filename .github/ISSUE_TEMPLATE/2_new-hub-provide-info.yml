@@ -141,30 +141,3 @@ body:
         Provide any other relevant information that you think may be important to the 2i2c Engineering team to help deploy and customize your hub.
     validations:
       required: false
-
-  - type: markdown
-    attributes:
-      value: |
-        ---
-
-        # (Do not fill this in) Hub Engineer information
-
-        The fields below don't need to be filled out unless you are a 2i2c Hub Engineer.
-        The Community Representative shouldn't worry about this section.
-    validations:
-      required: false
-
-  - type: checkboxes
-    id: tasks-to-deploy
-    attributes:
-      label: Tasks to deploy the hub
-      description: |
-        Tasks we'll need to follow to deploy this hub. This is only needs to be filled out by a 2i2c Engineer.
-
-      options:
-        - label: 1. Deploy information filled in above
-        - label: 2. Engineer who will deploy the hub is assigned
-        - label: 3. Initial Hub deployment PR <link to PR>
-        - label: 4. Administrators able to log on -> Hub now in steady-state
-    validations:
-      required: false
