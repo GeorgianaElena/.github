@@ -132,18 +132,16 @@ body:
     validations:
       required: false
 
-   - type: dropdown
+  - type: dropdown
     id: cloud-provider
     attributes:
       label: Preffered cloud provider
       description: |
         If you selected "Specific cloud provider or datacenter" option above, please select which one do you prefer.
       options:
-        - GitHub (e.g., @mygithubhandle)
-        - Google (myemailaddress@gmail.org, or a Google-backed domain)
-        - Institutional Provider via CILogon (e.g., username@institution.org)
-        - Username / Password via auth0: https://auth0.com/docs/connections/database
-        - Other (may not be possible, please specify in comments)
+        - GCP
+        - AWS
+        - Azure
     validations:
       required: false
 
