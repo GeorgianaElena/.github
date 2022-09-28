@@ -126,24 +126,38 @@ body:
         - **Dedicated Kubernetes cluster**: If you need to run the infrastructure on your own cloud account, or otherwise wish to have a dedicated cluster.
       multiple: true
       options:
-        - label: Specific cloud provider or datacenter (default is GCP)
-        - label: Dedicated Kubernetes cluster
-        - label: Scalable Dask Cluster
+        - Specific cloud provider or datacenter (otherwise GCP)
+        - Dedicated Kubernetes cluster
+        - Scalable Dask Cluster
     validations:
       required: false
 
   - type: dropdown
     id: cloud-provider
     attributes:
-      label: Preffered cloud provider
+      label: (Optional) Preffered cloud provider
       description: |
-        If you selected "Specific cloud provider or datacenter" option above, please select which one do you prefer.
+        If you selected the "Specific cloud provider or datacenter" extra option above, please select which one do you prefer.
       options:
-        - GCP
+        - No preference
+        - GCP (preffered)
         - AWS
         - Azure
     validations:
       required: false
+
+  - type: dropdown
+    id: billing-account
+    attributes:
+      label: Billing and Cloud account
+      description: |
+        If you selected the "Dedicated Kubernetes cluster" extra option and require a dedicated Kubernetes cluster
+        on a cloud provider of your choice, please make sure the billing and cloud accounts are set up and enough permissions
+        were granted to the 2i2c Engineers.
+        Documentation about this topic can be found here https://docs.2i2c.org/en/latest/admin/howto/create-billing-account.html
+      options:
+        - I have read the docs and have setup the billing and cloud accounts
+        - I need help figuring out the billing and cloud accounts
 
   - type: textarea
     id: other-information
