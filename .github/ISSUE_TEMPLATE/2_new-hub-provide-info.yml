@@ -125,7 +125,7 @@ body:
         - **Dedicated Scalable Dask Cluster** with [Dask Gateway](https://gateway.dask.org/): if you have very large datasets or otherwise need high-performance parallelizable computing via the cloud.
         - **Dedicated Kubernetes cluster**: If you need to run the infrastructure on your own cloud account, or otherwise wish to have a dedicated cluster.
       options:
-        - label: Specific cloud provider or datacenter: <!-- Specify which if yes -->
+        - label: Specific cloud provider or datacenter
         - label: Dedicated Kubernetes cluster
         - lable: Scalable Dask Cluster
     validations:
