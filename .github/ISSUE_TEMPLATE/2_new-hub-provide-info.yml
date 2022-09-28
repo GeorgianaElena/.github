@@ -90,7 +90,7 @@ body:
     attributes:
       value: |
         ## Hub user image
-      description: |
+
         It is possible to customize the user image for the hub, as long as the image is in a public registry.
         For example, a [quay.io registry image](https://quay.io/).
         See [the Infrastructure documentation on custom images](https://infrastructure.2i2c.org/en/latest/howto/customize/custom-image.html) for more information.
