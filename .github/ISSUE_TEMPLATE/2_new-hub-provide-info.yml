@@ -3,7 +3,7 @@ description: Creating a new hub for 2i2c to operate
 title: "[Information Provider] New Hub: {{ HUB NAME }}"
 labels: ["type: hub"]
 body:
-  - type: markdown
+ - type: markdown
     attributes:
       value: |
         # Ask for a new 2i2c JupyterHub!
