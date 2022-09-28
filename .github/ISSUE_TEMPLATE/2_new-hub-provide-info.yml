@@ -164,7 +164,7 @@ body:
       options:
         - label: 1. Deploy information filled in above
         - label: 2. Engineer who will deploy the hub is assigned
-        - label: 3. "Initial Hub deployment PR: <link to PR>"
+        - label: 3. Initial Hub deployment PR <link to PR>
         - label: 4. Administrators able to log on -> Hub now in steady-state
     validations:
       required: false
