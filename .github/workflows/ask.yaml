@@ -41,7 +41,7 @@ jobs:
         id: template
         uses: chuhlomin/render-template@v1.6
         with:
-          template: .github/comment-templates/comment_template.md
+          template: .github/comment_template.md
           vars_path: form.json
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
