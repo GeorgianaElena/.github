@@ -27,8 +27,8 @@ jobs:
           pending_info = {}
           for form_entry_id, form_entry_value in form.items():
             if not form_entry_value or form_entry_value == "pending":
-              pending_info[form_entry_id] = form_entry.replace("_","")
-              print(form_entry.replace("_",""))
+              pending_info[form_entry_id] = form_entry_id.replace("_","")
+              print(form_entry_id.replace("_",""))
           print(f'::set-output name=pending_info::{pending_info}')
       - name: Save the parsed form information into a json
         run: echo '${{ steps.find-missing-info.outputs.jsonString }}' > form.json
