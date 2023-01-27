@@ -23,13 +23,17 @@ jobs:
 
           # Setup variables
           form = ${{ steps.issue-parser.outputs.jsonString }}
-          print(form)
           pending_info = {}
           for form_entry_id, form_entry_value in form.items():
             if not form_entry_value or form_entry_value == "pending":
                 pending_info[form_entry_id] = form_entry_id.replace("_","")
                 # print(form_entry_id.replace("_"," "))
-          with open(os.environ["GITHUB_OUTPUT"], "a") as f :
-            for key, value in pending_info.items() :
-                print("{0}={1}".format(key, value), file=f)
+          print(pending_info)
+          if "GITHUB_OUTPUT" in os.environ :
+            with open(os.environ["GITHUB_OUTPUT"], "a") as f :
+                for key, value in pending_info.items() :
+                  print("{0}={1}".format(key, value), file=f)
+          else :
+              for key, value in pending_info.items() :
+                  print("::set-output name={0}::{1}".format(key, value))
       - run: echo '${{ steps.find-missing-info.outputs.jsonString }}'
