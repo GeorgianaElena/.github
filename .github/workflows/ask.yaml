@@ -25,7 +25,7 @@ jobs:
           form = ${{ steps.issue-parser.outputs.jsonString }}
           pending_info = {}
           for form_entry_id, form_entry_value in form:
-            if not form_entry_value or form_entry_value == "pending"
+            if not form_entry_value or form_entry_value == "pending":
               pending_info[form_entry_id] = form_entry.replace("_","")
               print(form_entry.replace("_",""))
           return pending_info
