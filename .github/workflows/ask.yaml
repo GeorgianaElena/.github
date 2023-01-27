@@ -5,7 +5,8 @@ on:
     types:
       - opened
 jobs:
-  get-pending-information:
+  ask-for-pending-information:
+    if: github.event.label.name == "new hub"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,17 +21,10 @@ jobs:
         id: template
         uses: chuhlomin/render-template@v1.6
         with:
-          template: .github/comment_template.md
+          template: .github/comment-templates/comment_template.md
           vars_path: form.json
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-number: 1
+          issue-number: ${{ github.event.issue.number }}
           body: ${{ steps.template.outputs.result }}
-
-      # - name: Check rendered template
-      #   run: cat rendered_template.json
-
-      # - run: cat order.json
-
-      # - run: node ./place-order.js
