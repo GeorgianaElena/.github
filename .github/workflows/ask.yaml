@@ -32,4 +32,4 @@ jobs:
           with open(os.environ["GITHUB_OUTPUT"], "a") as f :
             for key, value in pending_info.items() :
                 print("{0}={1}".format(key, value), file=f)
-      - run: echo '${{ steps.find-missing-info.outputs }}'
+      - run: echo '${{ steps.find-missing-info.outputs.jsonString }}'
