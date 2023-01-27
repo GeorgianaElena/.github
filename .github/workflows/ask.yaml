@@ -31,6 +31,9 @@ jobs:
                 print(form_entry_id.replace("_"," "))
           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
               print(f'pending_info={pending_info}', file=fh)
+      - run: echo '${{ steps.find-missing-info.outputs.jsonString }}'
+      - run: echo '${{ steps.find-missing-info.outputs.pending_info.jsonString }}'
+      - run: echo '${{ steps.pending_info.outputs.jsonString }}'
       - name: Save the parsed form information into a json
         run: echo '${{ steps.find-missing-info.outputs.jsonString }}' > form.json
       - name: cat file
