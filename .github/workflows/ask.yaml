@@ -22,10 +22,6 @@ jobs:
         run: |
           import os
           import sys
-          from textwrap import dedent
-
-          import requests
-          from ghapi.all import GhApi, paged
 
           # Setup variables
           form = ${{ steps.issue-parser.outputs.jsonString }}
