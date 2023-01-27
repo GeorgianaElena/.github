@@ -3,7 +3,7 @@ name: Comment on issues requesting deployment with pending information
 on:
   issues:
     types:
-      - opened
+       - labeled
 jobs:
   ask-for-pending-information:
     if: github.event.label.name == 'new hub'
