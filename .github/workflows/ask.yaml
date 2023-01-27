@@ -28,12 +28,11 @@ jobs:
           for form_entry_id, form_entry_value in form.items():
             if not form_entry_value or form_entry_value == "pending":
                 pending_info[form_entry_id] = form_entry_id.replace("_","")
-                print(form_entry_id.replace("_"," "))
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-              print(f'pending_info={pending_info}', file=fh)
-          with open(os.environ['GITHUB_OUTPUT'], 'r') as fh:
-              print(fh)
-      - run: echo '${{ steps.pending_info.outputs.jsonString }}' > form.json
+                # print(form_entry_id.replace("_"," "))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f :
+            for key, value in pending_info.items() :
+                print("{0}={1}".format(key, value), file=f)
+      - run: echo '${{ steps.find-missing-info.outputs.pending_info.jsonString }}' > form.json
       - run: cat form.json
       - name: Render comment template using the form information
         id: template
