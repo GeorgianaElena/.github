@@ -32,7 +32,7 @@ jobs:
           if "GITHUB_OUTPUT" in os.environ :
             with open(os.environ["GITHUB_OUTPUT"], "a") as f :
                 for key, value in pending_info.items() :
-                  print(f"peding_info={pending_info.items()}", file=f)
+                  print(f"pending_info={pending_info.items()}", file=f)
           else :
               for key, value in pending_info.items() :
                   print(f"::set-output name=pending_info::{pending_info.items()}")
