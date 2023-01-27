@@ -27,10 +27,10 @@ jobs:
           pending_info = {}
           for form_entry_id, form_entry_value in form.items():
             if not form_entry_value or form_entry_value == "pending":
-              pending_info[form_entry_id] = form_entry_id.replace("_","")
-              print(form_entry_id.replace("_"," "))
-           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-            print(f'pending_info={pending_info}', file=fh)
+                pending_info[form_entry_id] = form_entry_id.replace("_","")
+                print(form_entry_id.replace("_"," "))
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+              print(f'pending_info={pending_info}', file=fh)
       - name: Save the parsed form information into a json
         run: echo '${{ steps.find-missing-info.outputs.jsonString }}' > form.json
       - name: cat file
