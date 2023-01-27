@@ -6,7 +6,7 @@ on:
       - opened
 jobs:
   ask-for-pending-information:
-    if: github.event.label.name == "new hub"
+    if: github.event.label.name == 'new hub'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
