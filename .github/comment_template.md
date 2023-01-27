@@ -1,7 +1,8 @@
-This is a test comment template
-Render template variables such as: 
-- {{ .features }}
-- {{ .important_dates }}
+Hey {{ .hub_admins }} and {{ .issue_author }}! :wave
+I notice there is still pending information about the new hub deployment.
+The information pieces still missing, are the ones listed below.
+- {{ if .features == "pending" Features missing}}
+- {{ .important_dates == "pending" Important dates missing }}
 - {{ .auth_type }}
 - {{ .hub_admins }}
 - {{ .github_auth_only_how_would_you_like_to_manage_your_users }}
@@ -15,3 +16,8 @@ Render template variables such as:
 - {{ .billing_account }}
 - {{ .other_information }}
 - {{ .tasks_to_deploy }}
+
+Details about each of them can be found in the top comment. But if you have questions about any of them, please ping the "2i2c/engineering" and they will help you.
+
+After the form in the top comment is filled in, an engineer will be assigned and will start deploying the new hub 🚀.
+Thank you!
