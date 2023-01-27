@@ -1,6 +1,6 @@
-name: 💻ℹ New Hub - Information Provider
-description: Provide information about creating a new hub for 2i2c to operate
-title: "[Information Provider] New Hub: {{ HUB NAME }}"
+name: 💻  New Hub - Request deployment
+description: Request a new hub for 2i2c to operate and provide information to help the engineering team deploy it
+title: "[Request deployment] New Hub: {{ HUB NAME }}"
 labels: ["type: hub"]
 body:
   - type: markdown
@@ -17,8 +17,10 @@ body:
     attributes:
       label: Important dates
       description: |
-        Any important dates that we should consider for this hub. For example, if it will be used for a class, the starting day of class and any days with tests.
-      value: |
+        Any important dates that we should consider for this hub.
+        For example, if it will be used for a class, the starting day of class and any days with tests.
+        **If the dates are not yet known, only write "pending" in the text area below.**
+      placeholder: |
         - **Target start date**: <!-- choose a target date ~1 week earlier than the required date -->
         - **Required start date**: <!-- the hub MUST by running as-needed by this date -->
         - **Any important dates for usage**: <!-- For example - exams, periods of heavy usage, etc. -->
@@ -36,12 +38,13 @@ body:
       label: Hub Authentication Type
       description: |
         What kind of authentication service will be used for this community. This is the type of "log-in username" users will use on the hub.
+        **If this info is not known yet, please select "pending" in the dropdown below.**
       options:
         - GitHub (e.g., @mygithubhandle)
-        - Google (myemailaddress@gmail.org, or a Google-backed domain)
+        - Google (e.g., myemailaddress@gmail.org, or a Google-backed domain)
         - Institutional Provider via CILogon (e.g., username@institution.org)
-        - Username / Password via auth0: https://auth0.com/docs/connections/database
         - Other (may not be possible, please specify in comments)
+        - pending
     validations:
       required: true
 
@@ -54,12 +57,39 @@ body:
         The value here should reflect the type of authentication indicated below (e.g., a GitHub handle or email address).
 
         There may be up to 2 community representatives, please provide the **name**, **contact information**, and **hub login** of each.
+
+        **If this info is not known yet, please write "pending" in the text area below.**
       placeholder: |
         Examples:
         - Jo the Jovyan, jo@jupyter.org, @jothejovyan (if you are using GitHub authentication)
         - Jo the Jovyan 2, jo2@jupyter.org, jo2@jupyter.org (if you are using OAuth authentication)
     validations:
       required: true
+
+  - type: dropdown
+    attributes:
+      label: "[GitHub Auth only] How would you like to manage your users?"
+      description: |
+        Please describe how you would prefer to manage your users accessing the hub via GitHub Auth.
+
+        **If this info is not known yet, please select "pending" in the dropdown below.**
+      options:
+        - Manually, by adding specific GitHub handles in the JupyterHub Admin panel
+        - Allowing members of a specific GitHub organization
+        - Allowing members of specific GitHub team(s)
+        - pending
+
+  - type: textarea
+    attributes:
+      label: "[GitHub Teams Auth only] Profile restriction based on team membership"
+      description: |
+        If you wish to offer a range of machine sizes/image types but to only a subset of your users, we can facilitate this through GitHub Teams.
+        Please provide a list of GitHub Teams in your org and what resources you'd like each to access.
+
+        **If this info is not known yet, please write "pending" in the text area below.**
+      placeholder: |
+        @MyCoolOrg/all-users: Small and Medium sized machines
+        @MyCoolOrg/advanced-users: Small, Medium, Large and GPU machines
 
   - type: markdown
     attributes:
@@ -73,6 +103,8 @@ body:
       label: Hub logo image URL
       description: |
         Insert the URL where to find the logo image.
+
+        **If this info is not known yet, please write "pending" in the text area below.**
     validations:
       required: true
 
@@ -82,6 +114,8 @@ body:
       label: Hub logo website URL
       description: |
         Insert the URL where clicking the hub logo should point to. This generally points to a community or institutional website.
+
+        **If this info is not known yet, please write "pending" in the text area below.**
     validations:
       required: true
 
@@ -90,8 +124,8 @@ body:
       value: |
         # Hub user image
 
-        It is possible to customize the user image for the hub, as long as the image is in a public registry. For example, a [quay.io registry image](https://quay.io/).
-        See [the Infrastructure documentation on custom images](https://infrastructure.2i2c.org/en/latest/howto/customize/custom-image.html) for more information.
+        It is possible to customize the user image for the hub, as long as the image is in a public registry.
+        For example, a [quay.io registry image](https://quay.io/). See [the Infrastructure documentation on custom images](https://infrastructure.2i2c.org/en/latest/howto/customize/custom-image.html) for more information.
         Use this section to fill in relevant information:
 
   - type: input
@@ -99,7 +133,9 @@ body:
     attributes:
       label: Hub user image GitHub repository
       description: |
-        Insert the link to the GitHub repository for user image (if avaiblable)
+        Insert the link to the GitHub repository for user image (if available)
+
+        **If this info is not known yet, please write "pending" in the text area below.**
     validations:
       required: false
 
@@ -109,10 +145,12 @@ body:
       label: Hub user image tag and name
       description: |
         User image tag and name (including the registry). Eg. "quay.io/org/user-image:c4e586ff9240"
+
+        **If this info is not known yet, please write "pending" in the text area below.**
     validations:
       required: true
 
-  - type: dropdown
+  - type: checkboxes
     id: features
     attributes:
       label: Extra features you'd like to enable
@@ -124,23 +162,22 @@ body:
         - **Specific cloud provider or datacenter**: If you have restrictions about which cloud provider to use, and which data center the hub should live in (e.g. if it is next to a specific dataset).
         - **Dedicated Scalable Dask Cluster** with [Dask Gateway](https://gateway.dask.org/): if you have very large datasets or otherwise need high-performance parallelizable computing via the cloud.
         - **Dedicated Kubernetes cluster**: If you need to run the infrastructure on your own cloud account, or otherwise wish to have a dedicated cluster.
-      multiple: true
       options:
-        - Specific cloud provider or datacenter (otherwise GCP)
-        - Dedicated Kubernetes cluster
-        - Scalable Dask Cluster
+        - label: Specific cloud provider or datacenter (otherwise GCP)
+        - label: Dedicated Kubernetes cluster
+        - label: Scalable Dask Cluster
     validations:
       required: false
 
   - type: dropdown
     id: cloud-provider
     attributes:
-      label: (Optional) Preffered cloud provider
+      label: (Optional) Preferred cloud provider
       description: |
         If you selected the `Specific cloud provider or datacenter` extra option above, please select which one do you prefer.
       options:
         - No preference
-        - GCP (preffered)
+        - GCP (preferred)
         - AWS
         - Azure
     validations:
@@ -190,7 +227,8 @@ body:
       options:
         - label: 1. Deploy information filled in above
         - label: 2. Engineer who will deploy the hub is assigned
-        - label: 3. Initial Hub deployment PR <link to PR>
-        - label: 4. Administrators able to log on -> Hub now in steady-state
+        - label: 3. If using GitHub Orgs/Teams Auth, Engineer is given Owner rights to the org to set this up.
+        - label: 4. Initial Hub deployment PR <link to PR>
+        - label: 5. Administrators able to log on -> Hub now in steady-state
     validations:
       required: false
