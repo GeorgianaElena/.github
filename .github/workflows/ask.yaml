@@ -19,7 +19,7 @@ jobs:
       - name: Render template
         uses: chuhlomin/render-template@v1.6
         with:
-          template: .github/comment-template.md
+          template: .github/comment_template.md
           vars_path: form.json
 
       # - name: Check rendered template
