@@ -31,14 +31,8 @@ jobs:
                 print(form_entry_id.replace("_"," "))
           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
               print(f'pending_info={pending_info}', file=fh)
-      - run: echo '${{ GITHUB_OUTPUT }}'
-      - run: echo '${{ steps.find-missing-info.outputs.jsonString }}'
-      - run: echo '${{ steps.find-missing-info.outputs.pending_info.jsonString }}'
-      - run: echo '${{ steps.pending_info.outputs.jsonString }}'
-      - name: Save the parsed form information into a json
-        run: echo '${{ GITHUB_OUTPUT }}' > form.json
-      - name: cat file
-        run: cat form.json
+      - run: echo '${{ steps.pending_info.outputs.jsonString }}' > form.json
+      - run: cat form.json
       - name: Render comment template using the form information
         id: template
         uses: chuhlomin/render-template@v1.6
