@@ -3,7 +3,6 @@ I notice there is still pending information about the new hub deployment.
 The information pieces still missing, are the ones listed below.
 
 - {{ .auth_type }}
-- {{ .hub_admins }}
 - {{ .github_auth_only_how_would_you_like_to_manage_your_users }}
 - {{ .github_teams_auth_only_profile_restriction_based_on_team_membership }}
 - {{ .hub_logo_url }}
