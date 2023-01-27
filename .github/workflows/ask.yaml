@@ -32,17 +32,4 @@ jobs:
           with open(os.environ["GITHUB_OUTPUT"], "a") as f :
             for key, value in pending_info.items() :
                 print("{0}={1}".format(key, value), file=f)
-      - run: echo '${{ steps.find-missing-info.outputs.pending_info.jsonString }}' > form.json
-      - run: cat form.json
-      - name: Render comment template using the form information
-        id: template
-        uses: chuhlomin/render-template@v1.6
-        with:
-          template: .github/comment_template.md
-          vars_path: form.json
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          issue-number: ${{ github.event.issue.number }}
-          body: ${{ steps.template.outputs.result }}
-
+      - run: echo '${{ steps.find-missing-info.outputs }}'
