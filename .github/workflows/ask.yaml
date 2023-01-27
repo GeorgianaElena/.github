@@ -31,6 +31,8 @@ jobs:
                 print(form_entry_id.replace("_"," "))
           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
               print(f'pending_info={pending_info}', file=fh)
+           with open(os.environ['GITHUB_OUTPUT'], 'r') as fh:
+              print(fh)
       - run: echo '${{ steps.pending_info.outputs.jsonString }}' > form.json
       - run: cat form.json
       - name: Render comment template using the form information
