@@ -1,7 +1,7 @@
 name: 💻  New Hub - Request deployment
 description: Request a new hub for 2i2c to operate and provide information to help the engineering team deploy it
 title: "[Request deployment] New Hub: {{ HUB NAME }}"
-labels: ["type: hub"]
+labels: ["new hub"]
 body:
   - type: markdown
     attributes:
@@ -13,7 +13,7 @@ body:
         # Community Information
 
   - type: textarea
-    id: important-dates
+    id: important_dates
     attributes:
       label: Important dates
       description: |
@@ -33,7 +33,7 @@ body:
         # Infrastructure customization
 
   - type: dropdown
-    id: auth-type
+    id: auth_type
     attributes:
       label: Hub Authentication Type
       description: |
@@ -49,7 +49,7 @@ body:
       required: true
 
   - type: textarea
-    id: hub-admins
+    id: hub_admins
     attributes:
       label: First Hub Administrators
       description: |
@@ -98,7 +98,7 @@ body:
         The hub landing page can have a specific logo and a link attached to it.
 
   - type: input
-    id: hub-logo-url
+    id: hub_logo_url
     attributes:
       label: Hub logo image URL
       description: |
@@ -109,7 +109,7 @@ body:
       required: true
 
   - type: input
-    id: hub-logo-info
+    id: hub_logo_info
     attributes:
       label: Hub logo website URL
       description: |
@@ -129,7 +129,7 @@ body:
         Use this section to fill in relevant information:
 
   - type: input
-    id: hub-image-repo
+    id: hub_image_repo
     attributes:
       label: Hub user image GitHub repository
       description: |
@@ -140,7 +140,7 @@ body:
       required: false
 
   - type: input
-    id: hub-image-registry
+    id: hub_image_registry
     attributes:
       label: Hub user image tag and name
       description: |
@@ -170,7 +170,7 @@ body:
       required: false
 
   - type: dropdown
-    id: cloud-provider
+    id: cloud_provider
     attributes:
       label: (Optional) Preferred cloud provider
       description: |
@@ -184,7 +184,7 @@ body:
       required: false
 
   - type: dropdown
-    id: billing-account
+    id: billing_account
     attributes:
       label: (Optional) Billing and Cloud account
       description: |
@@ -197,7 +197,7 @@ body:
         - I need help figuring out the billing and cloud accounts
 
   - type: textarea
-    id: other-information
+    id: other_information
     attributes:
       label: Other relevant information to the features above
       description: |
@@ -218,7 +218,7 @@ body:
       required: false
 
   - type: checkboxes
-    id: tasks-to-deploy
+    id: tasks_to_deploy
     attributes:
       label: Tasks to deploy the hub
       description: |
