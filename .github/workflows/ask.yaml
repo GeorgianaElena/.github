@@ -1,0 +1,31 @@
+# Inspired from https://stefanbuck.com/blog/codeless-contributions-with-github-issue-forms
+name: Comment on issues requesting deployment with pending information
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  get-pending-information:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: stefanbuck/github-issue-praser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/2_new-hub-provide-info.yml
+      - name: Save form info into a json
+        run: echo '${{ steps.issue-parser.outputs.jsonString }}' > order.json
+      - run: cat order.json
+      # - name: Render template
+      #   uses: chuhlomin/render-template@v1.6
+      #   with:
+      #     template: template.json
+      #     result_path: rendered_template.json
+      #     vars_path: vars.yml
+
+      # - name: Check rendered template
+      #   run: cat rendered_template.json
+
+      # - run: cat order.json
+
+      # - run: node ./place-order.js
