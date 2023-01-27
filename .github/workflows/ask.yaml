@@ -14,14 +14,13 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/2_new-hub-provide-info.yml
       - name: Save form info into a json
-        run: echo '${{ steps.issue-parser.outputs.jsonString }}' > order.json
+        run: echo '${{ steps.issue-parser.outputs.jsonString }}' > form.json
       - run: cat order.json
-      # - name: Render template
-      #   uses: chuhlomin/render-template@v1.6
-      #   with:
-      #     template: template.json
-      #     result_path: rendered_template.json
-      #     vars_path: vars.yml
+      - name: Render template
+        uses: chuhlomin/render-template@v1.6
+        with:
+          template: .github/comment-template.md
+          vars_path: form.json
 
       # - name: Check rendered template
       #   run: cat rendered_template.json
