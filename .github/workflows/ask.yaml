@@ -32,8 +32,8 @@ jobs:
           if "GITHUB_OUTPUT" in os.environ :
             with open(os.environ["GITHUB_OUTPUT"], "a") as f :
                 for key, value in pending_info.items() :
-                  print("{0}={1}".format(key, value), file=f)
+                  print(f"peding_info={pending_info.items()}", file=f)
           else :
               for key, value in pending_info.items() :
-                  print("::set-output name={0}::{1}".format(key, value))
-      - run: echo '${{ steps.find-missing-info.outputs.auth_type }}'
+                  print(f"::set-output name=pending_info::{pending_info.items()}")
+      - run: echo '${{ steps.find-missing-info.outputs.pending_info }}'
