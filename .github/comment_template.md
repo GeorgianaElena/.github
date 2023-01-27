@@ -1,8 +1,7 @@
-Hey {{ .hub_admins }} and {{ .issue_author }}! :wave
+Hey {{ .hub_admins }}! :wave
 I notice there is still pending information about the new hub deployment.
 The information pieces still missing, are the ones listed below.
-- {{ if .features == "pending" Features missing}}
-- {{ .important_dates == "pending" Important dates missing }}
+- {{ if eq(features, "pending") then Features missing}} 
 - {{ .auth_type }}
 - {{ .hub_admins }}
 - {{ .github_auth_only_how_would_you_like_to_manage_your_users }}
