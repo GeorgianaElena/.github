@@ -1,4 +1,4 @@
-Hey ! :wave
+Hey {{ .hub_admins }}! :wave
 I notice there is still pending information about the new hub deployment.
 The information pieces still missing, are the ones listed below:
 
