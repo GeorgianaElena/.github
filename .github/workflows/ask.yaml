@@ -31,7 +31,7 @@ jobs:
           print(pending_info)
           if "GITHUB_OUTPUT" in os.environ :
             with open(os.environ["GITHUB_OUTPUT"], "a") as f :
-                print(f"pending_info={pending_info[,-2]}", file=f)
+                print(f"pending_info={pending_info[:-2]}", file=f)
                 print(f"hub_admins={hub_admins}", file=f)
       - run: echo ${{ steps.find-missing-info.outputs.pending_info }}
       - run: echo ${{ steps.find-missing-info.outputs.hub_admins }}
