@@ -42,7 +42,6 @@ jobs:
           template: .github/comment_template.md
           vars: |
             pending_info: ${{ steps.find-missing-info.outputs.pending_info }}
-            hub_admins: ${{ steps.find-missing-info.outputs.hub_admins }}
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
