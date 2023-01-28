@@ -24,6 +24,7 @@ jobs:
           form = ${{ steps.issue-parser.outputs.jsonString }}
           pending_info = ""
           hub_admins = form.get("hub_admins", None)
+          print(hub_admins)
           for form_entry_id, form_entry_value in form.items():
             if not form_entry_value or form_entry_value == "pending":
                 pending_info += f'{form_entry_id.replace("_", " ")}, '
@@ -32,6 +33,8 @@ jobs:
             with open(os.environ["GITHUB_OUTPUT"], "a") as f :
                 print(f"pending_info={pending_info[-2]}", file=f)
                 print(f"hub_admins={hub_admins}", file=f)
+      - run: echo ${{ steps.find-missing-info.outputs.pending_info }}
+      - run: echo ${{ steps.find-missing-info.outputs.hub_admins }}
       - name: Render comment template using the form information
         id: template
         uses: chuhlomin/render-template@v1.6
