@@ -22,11 +22,11 @@ jobs:
           import sys
 
           form = ${{ steps.issue-parser.outputs.jsonString }}
-          pending_info = []
+          pending_info = ""
           hub_admins = form.get("hub_admins", None)
           for form_entry_id, form_entry_value in form.items():
             if not form_entry_value or form_entry_value == "pending":
-                pending_info.append(f'\n- {form_entry_id.replace("_", " ")}\n')
+                pending_info += f'\n- {form_entry_id.replace("_", " ")}\n'
           print(pending_info)
           if "GITHUB_OUTPUT" in os.environ :
             with open(os.environ["GITHUB_OUTPUT"], "a") as f :
