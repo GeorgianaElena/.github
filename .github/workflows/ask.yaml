@@ -32,13 +32,13 @@ jobs:
                 print(f"pending_info={pending_info}", file=f)
           else :
                 print(f"::set-output name=pending_info::{pending_info}")
-      - run: echo '${{ steps.find-missing-info.outputs.pending_info }}' > form.json
       - name: Render comment template using the form information
         id: template
         uses: chuhlomin/render-template@v1.6
         with:
           template: .github/comment_template.md
-          vars_path: form.json
+          vars: |
+            pending_info: ${{ steps.find-missing-info.outputs.pending_info }}
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
