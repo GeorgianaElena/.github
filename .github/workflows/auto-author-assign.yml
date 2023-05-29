@@ -3,16 +3,16 @@ name: Auto Author Assign
 
 on:
   issues:
-    types: [ opened, reopened ]
-  pull_request_target:
-    types: [ opened, reopened ]
-
+    types:
+      - opened
+      - reopened
+      - labeled
 permissions:
   issues: write
-  pull-requests: write
 
 jobs:
   assign-author:
+    if: contains(github.event.issue.lables.*.name, 'bug')
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.2
