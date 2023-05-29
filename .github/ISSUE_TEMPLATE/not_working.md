@@ -2,7 +2,8 @@
 name: "\U0001F494 Something is not working"
 about: When you're not sure if the errors are because of a bug, a missing feature, or a misconfiguration
 labels: "needs: triage, help wanted"
-assignees: ${{ github.event.pull_request.user.login }}
+assignees:
+    - ${{ github.event.pull_request.user.login }}
 
 ---
 <!-- Thank you for contributing. These HTML commments will not render in the issue, but you can delete them once you've read them if you prefer! -->
