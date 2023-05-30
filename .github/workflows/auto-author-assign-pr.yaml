@@ -23,7 +23,7 @@ jobs:
         if: ${{ failure() }}
         run: echo Failed
       - name: The job was skipped
-        if: ${{ skipped() }}
+        if: ${{ needs.assign_author.result }} == "skipped"
         run: echo Skipped
   # make_successful:
   #   runs-on: ubuntu-latest
