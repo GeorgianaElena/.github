@@ -26,5 +26,5 @@ jobs:
         shell: python
         run: |
           import os
-          status = "$ {{jobs.assign-author.result }}
+          status = "${{ jobs.assign-author.result }}
           print(status)
