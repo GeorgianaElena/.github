@@ -11,20 +11,20 @@ permissions:
   pull-requests: write
 
 jobs:
-  assign-author:
+  assign_author:
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.2
   # We use this workflow as a required workflow for other repositories in the org
   # We want it to run for each repository that it was set as required,
   # but we don't want to block PRs if it doesn't run or if it fails
-  make-successful:
+  make_successful:
     runs-on: ubuntu-latest
-    needs: assign-author
+    needs: assign_author
     steps:
       - name: Filter prod deploy jobs to run based on failures in support/staging
         shell: python
         run: |
           import os
-          status = "${{ jobs.assign-author.result }}
+          status = "${{ jobs.assign_author.result }}
           print(status)
