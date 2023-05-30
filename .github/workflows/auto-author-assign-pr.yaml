@@ -19,14 +19,9 @@ jobs:
     steps:
       - name: Automatically assign PR author
         uses: toshimaru/auto-author-assign@v1.6.2
-      - name: The job has failed
+      - name: Check if the assignment failed
         if: ${{ failure() }}
-        run: echo Failed
-      - name: The job was skipped
+        run: echo "Assignment Failed"
+      - name: Check if the assignment was skipped
         if: ${{ needs.assign_author.result }} == "skipped"
-        run: echo Skipped
-  # make_successful:
-  #   runs-on: ubuntu-latest
-  #   needs: [assign_author]
-  #   steps:
-  #     - run: echo ${{ needs.assign_author.result }}
+        run: echo "Assignment Skipped"
