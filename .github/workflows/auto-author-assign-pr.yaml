@@ -21,7 +21,7 @@ jobs:
         id: assign_action
         uses: toshimaru/auto-author-assign@v1.6.2
       - name: Check if the assignment was skipped
-        if: ${{ steps.assign_action.assign_author.status == "skipped" }}
+        if: ${{ steps.assign_action.assign_author.status == skipped }}
         run: echo "Assignment Skipped"
       - name: Check if the assignment failed
         if: ${{ failure() }}
