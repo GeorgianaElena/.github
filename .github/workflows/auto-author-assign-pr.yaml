@@ -25,6 +25,6 @@ jobs:
       - name: Filter prod deploy jobs to run based on failures in support/staging
         shell: python
         run: |
-          import os
-          status = "${{ jobs.assign_author.result }}
-          print(status)
+          sts = "${{ job.status }}"
+          # status = "${{ jobs.assign_author.result }}
+          print(sts)
