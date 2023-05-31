@@ -20,4 +20,4 @@ jobs:
       - name: Automatically assign PR author
         id: assign_action
         uses: toshimaru/auto-author-assign@v1.6.2
-      - run: echo Result was ${{ steps.assign_action.conclusion }}
+      - run: echo Result was ${{ steps.assign_action.outputs.* }}
