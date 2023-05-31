@@ -10,14 +10,11 @@ on:
 permissions:
   pull-requests: write
 
-# We use this workflow as a required workflow for other repositories in the org
-# We want it to run for each repository that it was set as required,
-# but we don't want to block PRs if it doesn't run or if it fails
 jobs:
-  assign_author:
+  assign-author:
     runs-on: ubuntu-latest
     steps:
       - name: Automatically assign PR author
-        id: assign_action
+        id: assignation
         uses: toshimaru/auto-author-assign@v1.6.2
-      - run: echo Result was ${{ steps.assign_action.outputs.* }}
+      - run: echo Assignment operation status was ${{ steps.assignation.conclusion }}
