@@ -22,4 +22,4 @@ jobs:
     steps:
       - name: Automatically assign PR author
         id: assignation
-        uses: toshimaru/auto-author-assign@v1.6.
+        uses: toshimaru/auto-author-assign@v1.6.2
