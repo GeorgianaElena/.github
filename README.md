@@ -1,3 +1,3 @@
 # .github
 
-Test gihub actions, bots, templates :D
+This repo is used for testing GitHub workflows, actions, bots, templates :D
