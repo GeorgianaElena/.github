@@ -59,8 +59,8 @@ body:
     attributes:
       label: Are we three weeks before the start date of the event?
       options:
-        - label: Yes
-        - label: No
+        - label: "Yes"
+        - label: "No"
       validations:
         required: true
 
@@ -94,8 +94,8 @@ body:
     attributes:
       label: Does the hub already exist?
       options:
-        - label: Yes
-        - label: No
+        - label: "Yes"
+        - label: "No"
 
   - type: input
     id: hub_url
@@ -109,8 +109,8 @@ body:
     attributes:
       label: Will this hub be decommissioned after the event is over?
       options:
-        - label: Yes
-        - label: No
+        - label: "Yes"
+        - label: "No"
 
   - type: markdown
     attributes:
@@ -124,14 +124,13 @@ body:
     attributes:
       label: Was all the info filled in above?
       options:
-        - label: Yes
-        - label: No
+        - label: "Yes"
+        - label: "No"
 
   - type: checkboxes
     id: quotas_ok
     attributes:
       label: Quotas from the cloud provider are high-enough to handle expected usage?
       options:
-        - label: Yes
-        - label: No
-
+        - label: "Yes"
+        - label: "No"
