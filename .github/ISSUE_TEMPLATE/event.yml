@@ -61,8 +61,6 @@ body:
       options:
         - label: "Yes"
         - label: "No"
-      validations:
-        required: true
 
   - type: input
     id: user_number
