@@ -28,7 +28,7 @@ body:
         Type the GitHub handle of the community representative or their name if the handle is not known.
     validations:
       required: true
-  
+
   - type: textarea
     id: event_begin
     attributes:
@@ -53,7 +53,17 @@ body:
       label: What hours of the day will participants be active? (e.g., 5am - 5pm US/Pacific)
     validations:
       required: true
-  
+
+  - type: checkboxes
+    id: enough_notice
+    attributes:
+      label: Are we three weeks before the start date of the event?
+      options:
+        - label: Yes
+        - label: No
+      validations:
+        required: true
+
   - type: input
     id: user_number
     attributes:
@@ -71,3 +81,57 @@ body:
          [Hub Events Calendar](https://calendar.google.com/calendar/u/2?cid=Y19rdDg0c2g3YW5tMHNsb2NqczJzdTNqdnNvY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
       options:
         - label: Done
+
+  - type: markdown
+    attributes:
+      value: |
+        # Hub info
+
+        General info about the hub that will be used for the event.
+
+  - type: checkboxes
+    id: hub_exists
+    attributes:
+      label: Does the hub already exist?
+      options:
+        - label: Yes
+        - label: No
+
+  - type: input
+    id: hub_url
+    attributes:
+      label: The URL of the hub that will be used for the event
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: hub_decommision
+    attributes:
+      label: Will this hub be decommissioned after the event is over?
+      options:
+        - label: Yes
+        - label: No
+
+  - type: markdown
+    attributes:
+      value: |
+        # Engineer task list
+
+        General checks to perform before the event.
+
+  - type: checkboxes
+    id: info_available
+    attributes:
+      label: Was all the info filled in above?
+      options:
+        - label: Yes
+        - label: No
+
+  - type: checkboxes
+    id: quotas_ok
+    attributes:
+      label: Quotas from the cloud provider are high-enough to handle expected usage?
+      options:
+        - label: Yes
+        - label: No
+
