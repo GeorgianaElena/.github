@@ -66,6 +66,8 @@ body:
   - type: checkboxes
     id: calendar
     attributes:
-      label: Make sure to add the event into the [Hub Events Calendar](https://calendar.google.com/calendar/u/2?cid=Y19rdDg0c2g3YW5tMHNsb2NqczJzdTNqdnNvY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+      label: Make sure to add the event into the 
+      description: |
+         [Hub Events Calendar](https://calendar.google.com/calendar/u/2?cid=Y19rdDg0c2g3YW5tMHNsb2NqczJzdTNqdnNvY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
       options:
         - label: Done
