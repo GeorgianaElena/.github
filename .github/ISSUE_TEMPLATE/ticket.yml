@@ -6,10 +6,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        # Event Info
+        # Ticket Tracker Info
 
-        The following information is needed to determine if additional changes need to be done to the infrastructure.
-        Get this information from the community representative via support if not already provided.
+        This template is designed to help the support triagers provide information about a Freshdesk ticket that could not be solved in the first 30min support window.
+        This information will then be used to plan, prioritize and assign capacity in order to resolve this ticket.
 
   - type: input
     id: ticket_id
@@ -17,5 +17,45 @@ body:
       label: The Freshdesk ticket link
       description: |
         Copy-paste the Freshdesk link here
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ticket_type
+    attributes:
+      label: Ticket request type
+      description: |
+        The general topic of request in the Freshdesk ticket. Note that the Event type has its own issue template! Select "Other" if none of the first options qualify.
+      options:
+        - Feature Request
+        - Something is not working
+        - Technical questions
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short ticket description
+      description: |
+        Short description of what the ticket is about and what kind of work needs to be done to fix it.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        # 30m Investigation Context
+
+        Please paste in the following section any useful context about the ticket that was discovered during the initial 30min investigation window.
+        If it was clear that the the ticket cannot be resolved by the support triager in the 30min window and no initial investigation was performed leave the next section blank.
+
+  - type: textarea
+    id: results
+    attributes:
+      label: Initial investigation results
+      description: |
+        Any useful information that was discovered about the ticket during its initial triaging.
     validations:
       required: true
