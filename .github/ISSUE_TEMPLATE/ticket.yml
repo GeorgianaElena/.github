@@ -1,0 +1,21 @@
+name: "🎫 Freshdesk ticket tracker"
+description: Track work on GitHub requested via a Freshdesk ticket
+title: "[Support] {{ Ticket name }}"
+labels: ["support"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Event Info
+
+        The following information is needed to determine if additional changes need to be done to the infrastructure.
+        Get this information from the community representative via support if not already provided.
+
+  - type: input
+    id: ticket_id
+    attributes:
+      label: The Freshdesk ticket link
+      description: |
+        Copy-paste the Freshdesk link here
+    validations:
+      required: true
