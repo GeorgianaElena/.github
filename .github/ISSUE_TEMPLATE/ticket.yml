@@ -6,10 +6,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        # Ticket Tracker Info
-
         This template is designed to help the support triagers provide information about a Freshdesk ticket that could not be solved in the first 30min support window.
+
         This information will then be used to plan, prioritize and assign capacity in order to resolve this ticket.
+
+        # Ticket Information
 
   - type: input
     id: ticket_id
@@ -46,16 +47,17 @@ body:
   - type: markdown
     attributes:
       value: |
-        # 30m Investigation Context
+        # Initial 30m Investigation Context
 
-        Please paste in the following section any useful context about the ticket that was discovered during the initial 30min investigation window.
-        If it was clear that the the ticket cannot be resolved by the support triager in the 30min window and no initial investigation was performed leave the next section blank.
+        Use the following section to provide the results of the initial 30min investigation.
+
+        If no initial investigation was performed because it was clear that the the ticket cannot be resolved by the support triager in the first 30min window, then leave the next section blank.
 
   - type: textarea
     id: results
     attributes:
-      label: Initial investigation results
+      label: (Optional) Investigation results
       description: |
-        Any useful information that was discovered about the ticket during its initial triaging.
+        Paste any useful information that was discovered during the initial ticket triaging.
     validations:
-      required: true
+      required: false
