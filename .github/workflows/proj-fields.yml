@@ -1,4 +1,4 @@
-name: Get proj status fields
+name: Set proj status fields
 on: 
   issues:
     types: [opened, reopened]
@@ -14,5 +14,5 @@ jobs:
           fields: Status
           github_token: ${{ secrets.PROJ_PAT }}
           project_url: https://github.com/users/GeorgianaElena/projects/3
-          values: "Done"
+          values: "Todo"
       - run: echo ${{ steps.fields.outputs.values }}
