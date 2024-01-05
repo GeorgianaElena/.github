@@ -10,8 +10,9 @@ jobs:
       - uses: EndBug/project-fields@v2
         id: fields
         with:
-          operation: get
+          operation: set
           fields: Status
           github_token: ${{ secrets.PROJ_PAT }}
-          project_url: https://github.com/orgs/2i2c-org/projects/22
+          project_url: https://github.com/users/GeorgianaElena/projects/3
+          values: "Done"
       - run: echo ${{ steps.fields.outputs.values }}
