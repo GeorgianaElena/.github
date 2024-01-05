@@ -1,0 +1,18 @@
+- uses: EndBug/project-fields@v2
+  with:
+    # ⬇️ Required inputs ⬇️
+
+    # The type of field operation. Valid options are "get", "set", "clear"
+    operation: get
+
+    # A comma-separated list of fields to get or set
+    # See the FAQ section for a list of supported field types
+    fields: Status
+
+    # The GitHub token to use for authentication
+    # This token should have write access to the project, and read access
+    # to the issue/PR you're referencing (see the FAQ section for more info)
+    github_token: ${{ secrets.PROJ_PAT }}
+
+    # The URL of the project
+    project_url: https://github.com/orgs/2i2c-org/projects/22
