@@ -1,11 +1,17 @@
-on: [issues]
+name: Get proj status fields
+on: 
+  issues:
+    types: [opened, reopened]
 
-- uses: EndBug/project-fields@v2
-  id: fields
-  with:
-    operation: get
-    fields: Status
-    github_token: ${{ secrets.PROJ_PAT }}
-    project_url: https://github.com/orgs/2i2c-org/projects/22
-
-- run: echo ${{ steps.fields.outputs.values }}
+jobs:
+  proj-fields:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: EndBug/project-fields@v2
+        id: fields
+        with:
+          operation: get
+          fields: Status
+          github_token: ${{ secrets.PROJ_PAT }}
+          project_url: https://github.com/orgs/2i2c-org/projects/22
+      - run: echo ${{ steps.fields.outputs.values }}
