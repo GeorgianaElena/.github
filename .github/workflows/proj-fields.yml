@@ -1,18 +1,47 @@
-name: Set proj status fields
+name: Set project board status fields
 on: 
   issues:
-    types: [opened, reopened]
+    types:
+      - labeled
 
 jobs:
-  proj-fields:
+  update-project-board-fields:
+    if: github.event.label.name == 'support'
     runs-on: ubuntu-latest
     steps:
-      - uses: EndBug/project-fields@v2
-        id: fields
+      - uses: actions/checkout@v4
+      - name: Parse the ticket tracker issue template form
+        uses: stefanbuck/github-issue-praser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/ticket.yml
+      - name: Get ticket type from the form
+        shell: python
+        id: get-ticket-type
+        run: |
+          import os
+
+          form = ${{ steps.issue-parser.outputs.jsonString }}
+          type = form.items().get("ticket_type")
+          # Export the `pending_info` string to GITHUB_OUTPUT to be used in following steps
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f :
+              print(f"type={type}", file=f)
+      - name: Update the "Impact" field with info from the issue form
+        uses: EndBug/project-fields@v2
+        id: update-impact
         with:
           operation: set
-          fields: Status
+          fields: Impact
           github_token: ${{ secrets.PROJ_PAT }}
           project_url: https://github.com/users/GeorgianaElena/projects/3
-          values: "Todo"
-      - run: echo ${{ steps.fields.outputs.values }}
+          values: "${{ steps.get-ticket-type.outputs.type }}"
+      - name: Update the "Type" field to "Support"
+        uses: EndBug/project-fields@v2
+        id: update-type
+        with:
+          operation: set
+          fields: Type
+          github_token: ${{ secrets.PROJ_PAT }}
+          project_url: https://github.com/users/GeorgianaElena/projects/3
+          values: "Support"
+
