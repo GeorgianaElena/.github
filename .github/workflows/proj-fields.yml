@@ -22,7 +22,7 @@ jobs:
           import os
 
           form = ${{ steps.issue-parser.outputs.jsonString }}
-          type = form.items().get("ticket_type")
+          type = form.get("ticket_type")
           # Export the `pending_info` string to GITHUB_OUTPUT to be used in following steps
           with open(os.environ["GITHUB_OUTPUT"], "a") as f :
               print(f"type={type}", file=f)
