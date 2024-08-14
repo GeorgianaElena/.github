@@ -1,0 +1,49 @@
+name: 💡 General Issue
+description: A general template for many kinds of issues.
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: |
+        Any background information that helps others understand this issue and why it is important.
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Task list
+      description: |
+        (optional) A clear and concise list of steps to take to close this issue.
+      value: |
+        ```[tasklist]
+        - [ ] 
+        - [ ] 
+        - [ ] 
+        ```
+    validations:
+      required: false
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definition of Done
+      description: |
+        The Definition of Done. What must be true to consider this task complete?
+    validations:
+      required: true
+
+   - type: markdown
+    id: def-dod
+    attributes:
+      label: Pre-defined Definition of Done
+      description: |
+        A pre-defined list of tasks that should be considered to consider the task complete.
+      value: |
+        - [ ] All the tasks have been completed
+        - [ ] It has been tested to work and to not break any existing functionality
+        - [ ] Documentation was added so other engineers can implement this in the future if needed
+    validations:
+      required: false
