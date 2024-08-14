@@ -27,7 +27,6 @@ body:
     attributes:
       label: Community Representative
       description: The GitHub ID of the current representative for the Hub and Community, e.g. @octocat
-      placeholder: @octocat
     validations:
       required: true
   - type: input
