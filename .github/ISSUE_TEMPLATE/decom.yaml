@@ -1,39 +1,7 @@
-name: "📦 Decommission a Hub"
-description: Decommission a Hub that is no longer in active use
-title: "[Decommission Hub][{{ deadline }}] {{ HUB NAME }}"
-
+name: Decommission Hub
+description: Track the decommissioning of a hub
+title: "[Decommission Hub] {{hub_name}}"
 body:
-  - type: markdown
-    attributes:
-      value: |
-        ### Summary
-
-        <!-- Please provide a short, one-sentence summary around why this Hub should be decommissioned.
-        Usually, it is because it was a hub that we created for a workshop/conference and the event has now passed. -->
-
-  - type: textarea
-    id: summary
-    attributes:
-      label: Summary
-      description: Provide a short, one-sentence summary around why this Hub should be decommissioned.
-      placeholder: e.g., The hub was created for a workshop/conference and the event has now passed.
-    validations:
-      required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        ### Info
-
-  - type: input
-    id: community_representative
-    attributes:
-      label: Community Representative
-      description: The GitHub ID of the current representative for the Hub and Community, e.g. @octocat
-      placeholder: @octocat
-    validations:
-      required: true
-
   - type: input
     id: new_hub_issue_link
     attributes:
@@ -42,7 +10,6 @@ body:
       placeholder: https://github.com/2i2c-org/infrastructure/issues/#NNN
     validations:
       required: true
-
   - type: input
     id: proposed_end_date
     attributes:
@@ -51,14 +18,11 @@ body:
       placeholder: YYYY-MM-DD
     validations:
       required: false
-
   - type: markdown
     attributes:
       value: |
         ### Task List
-
         #### Phase I
-
   - type: checkboxes
     id: phase_i_tasks
     attributes:
@@ -67,20 +31,10 @@ body:
       options:
         - label: Confirm with Community Representative that the hub is no longer in use and it's safe to decommission
           required: false
-        - label: Confirm if there is any data to migrate from the hub before decommissioning
-          required: false
-        - label: If yes, confirm where the data should be migrated to
-          required: false
-        - label: Confirm a 2i2c Engineer has access to the destination in order to complete the data migration
-          required: false
-        - label: If no, confirm it is ok to delete all the data stored in the user home directories
-          required: false
-
   - type: markdown
     attributes:
       value: |
-        These steps are described in more detail in the docs at https://infrastructure.2i2c.org/hub-deployment-guide/hubs/delete-hub/
-
+        #### Phase II
   - type: checkboxes
     id: phase_ii_tasks
     attributes:
@@ -91,6 +45,20 @@ body:
         - label: Manage existing cloud bucket data (migrate data, or delete it)
           required: false
         - label: Delete the hub's authentication application on GitHub or CILogon (note CILogon removal requires the hub config in place)
+          required: false
+  - type: markdown
+    attributes:
+      value: |
+        #### Phase III - Cluster Removal
+        _This phase is only necessary for single hub clusters._
+  - type: checkboxes
+    id: phase_iii_tasks
+    attributes:
+      label: Phase III Tasks
+      options:
+        - label: Remove the cluster's datasource from the central Grafana with:
+          required: false
+        - label: deployer grafana central-ds remove <cluster_name>
           required: false
         - label: Remove the appropriate `config/clusters/<cluster_name>/<hub_name>.values.yaml` files. A complete list of relevant files can be found under the appropriate entry in the associated `cluster.yaml` file.
           required: false
@@ -103,37 +71,4 @@ body:
         - label: kubectl delete namespace HUB_NAME
           required: false
         - label: TIP: Run `deployer use-cluster-credentials <cluster_name>` before running the above commands
-          required: false
-
-  - type: markdown
-    attributes:
-      value: |
-        #### Phase III - Cluster Removal
-
-        _This phase is only necessary for single hub clusters._
-
-  - type: checkboxes
-    id: phase_iii_tasks
-    attributes:
-      label: Phase III Tasks
-      options:
-        - label: Remove the cluster's datasource from the central Grafana with:
-          required: false
-        - label: deployer grafana central-ds remove <cluster_name>
-          required: false
-        - label: Run `terraform plan -destroy` and `terraform apply` from the [appropriate workspace](https://infrastructure.2i2c.org/en/latest/topic/terraform.html#workspaces), to destroy the cluster
-          required: false
-        - label: Delete the terraform workspace: `terraform workspace delete <NAME>`
-          required: false
-        - label: Delete the terraform values file under the `projects` folder associated with the relevant cloud provider (e.g. [`terraform/gcp/projects/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fgeorgiana%2Fdev%2F2i2c%2Fpilot-hubs%2Fterraform%2Fgcp%2Fprojects%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/georgiana/dev/2i2c/pilot-hubs/terraform/gcp/projects/") for GCP)
-          required: false
-        - label: Remove the associated `config/clusters/<cluster_name>` directory and all its contents
-          required: false
-        - label: Remove the cluster from CI:
-          required: false
-        - label: deploy-hubs.yaml
-          required: false
-        - label: deploy-grafana-dashboards.yaml
-          required: false
-        - label: Remove A record from Namecheap account
           required: false
