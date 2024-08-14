@@ -1,6 +1,6 @@
 name: 📅 Event for a community
 description: Coordination and planning around an event for a community
-title: "[EVENT] {{ HUB NAME }}"
+title: "[EVENT][{{ dates }}] {{ HUB NAME }}"
 labels: ["event"]
 body:
   - type: markdown
@@ -27,7 +27,7 @@ body:
       description: |
         Type the GitHub handle of the community representative or their name if the handle is not known.
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: event_begin
@@ -76,7 +76,7 @@ body:
     attributes:
       label: Make sure to add the event into the calendar
       description: |
-         The [Hub Events Calendar link](https://calendar.google.com/calendar/u/2?cid=Y19rdDg0c2g3YW5tMHNsb2NqczJzdTNqdnNvY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+        The [Hub Events Calendar link](https://calendar.google.com/calendar/u/2?cid=Y19rdDg0c2g3YW5tMHNsb2NqczJzdTNqdnNvY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
       options:
         - label: Done
 
@@ -117,18 +117,31 @@ body:
 
         General checks to perform before the event.
 
-  - type: checkboxes
-    id: info_available
+  - type: textarea
+    id: tasks
     attributes:
-      label: Was all the info filled in above?
-      options:
-        - label: "Yes"
-        - label: "No"
+      label: Task list
+      description: |
+        (optional) A clear and concise list of steps to take to close this issue.
+      value: |
+        ```[tasklist]
+        - [ ] Was all the info filled in above?
+        - [ ] Quotas from the cloud provider are high-enough to handle expected usage?
+        - [ ] 
+        ```
+    validations:
+      required: true
 
-  - type: checkboxes
-    id: quotas_ok
+  - type: textarea
+    id: dod
     attributes:
-      label: Quotas from the cloud provider are high-enough to handle expected usage?
-      options:
-        - label: "Yes"
-        - label: "No"
+      label: Definition of Done
+      description: |
+        The Definition of Done. What must be true to consider this task complete?
+      value: |
+        ```[tasklist]
+        - [ ] All the tasks have been completed
+        - [ ] 
+        ```
+    validations:
+      required: true
