@@ -56,19 +56,19 @@ body:
     attributes:
       label: Phase III Tasks
       options:
-        - label: Remove the cluster's datasource from the central Grafana with:
+        - label: "Remove the cluster's datasource from the central Grafana with:"
           required: false
-        - label: deployer grafana central-ds remove <cluster_name>
+        - label: "deployer grafana central-ds remove <cluster_name>"
           required: false
-        - label: Remove the appropriate `config/clusters/<cluster_name>/<hub_name>.values.yaml` files. A complete list of relevant files can be found under the appropriate entry in the associated `cluster.yaml` file.
+        - label: "Remove the appropriate `config/clusters/<cluster_name>/<hub_name>.values.yaml` files. A complete list of relevant files can be found under the appropriate entry in the associated `cluster.yaml` file."
           required: false
-        - label: Remove the associated hub entry from the `config/clusters/<cluster_name>/cluster.yaml` file.
+        - label: "Remove the associated hub entry from the `config/clusters/<cluster_name>/cluster.yaml` file."
           required: false
-        - label: Remove the hub deployment
+        - label: "Remove the hub deployment"
           required: false
-        - label: helm --namespace HUB_NAME delete HUB_NAME
+        - label: "helm --namespace HUB_NAME delete HUB_NAME"
           required: false
-        - label: kubectl delete namespace HUB_NAME
+        - label: "kubectl delete namespace HUB_NAME"
           required: false
-        - label: TIP: Run `deployer use-cluster-credentials <cluster_name>` before running the above commands
+        - label: "TIP: Run `deployer use-cluster-credentials <cluster_name>` before running the above commands"
           required: false
