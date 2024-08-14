@@ -50,14 +50,15 @@ body:
       value: |
         ### Task List
         #### Phase I
-  - type: checkboxes
+  - type: dropdown
     id: phase_i_tasks
     attributes:
       label: Phase I Tasks
+      multiple: false
       description: Confirm with Community Representative that the hub is no longer in use and it's safe to decommission
       options:
-        - label: Confirm with Community Representative that the hub is no longer in use and it's safe to decommission
-          required: false
+        - label: Data should be migrated?
+        - label: Data should be deleted?
   - type: markdown
     attributes:
       value: |
