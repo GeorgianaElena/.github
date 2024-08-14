@@ -35,13 +35,13 @@ body:
     validations:
       required: true
   - type: checkboxes
-  attributes:
-    label: Pre-defined Definition of Done
-    description: A non-specific, pre-defined list of tasks that should be considered before marking the task complete.
-    options:
-    - label: All the tasks have been completed
-      required: false
-    - label: It has been tested to work and to not break any existing functionality
-      required: false
-    - label: Documentation was added so other engineers can implement this in the future if needed
-      required: false
+    attributes:
+      label: Pre-defined Definition of Done
+      description: A non-specific, pre-defined list of tasks that should be considered before marking the task complete.
+      options:
+      - label: All the tasks have been completed
+        required: false
+      - label: It has been tested to work and to not break any existing functionality
+        required: false
+      - label: Documentation was added so other engineers can implement this in the future if needed
+        required: false
