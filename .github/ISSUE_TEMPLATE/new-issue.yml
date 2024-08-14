@@ -35,15 +35,3 @@ body:
     validations:
       required: true
 
-   - type: markdown
-    id: def-dod
-    attributes:
-      label: Pre-defined Definition of Done
-      description: |
-        A pre-defined list of tasks that should be considered to consider the task complete.
-      value: |
-        - [ ] All the tasks have been completed
-        - [ ] It has been tested to work and to not break any existing functionality
-        - [ ] Documentation was added so other engineers can implement this in the future if needed
-    validations:
-      required: false
