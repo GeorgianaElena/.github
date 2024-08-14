@@ -53,12 +53,12 @@ body:
   - type: dropdown
     id: phase_i_tasks
     attributes:
-      label: Phase I Tasks
+      label: Confirm with Community Representative that the hub is no longer in use and it's safe to decommission
       multiple: false
       description: Confirm with Community Representative that the hub is no longer in use and it's safe to decommission
       options:
-        - label: Data should be migrated?
-        - label: Data should be deleted?
+        - Data should be migrated
+        - Data should be deleted
   - type: markdown
     attributes:
       value: |
