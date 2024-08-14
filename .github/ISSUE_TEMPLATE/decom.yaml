@@ -1,7 +1,35 @@
-name: Decommission Hub
-description: Track the decommissioning of a hub
-title: "[Decommission Hub] {{hub_name}}"
+name: "📦 Decommission a Hub"
+description: Decommission a Hub that is no longer in active use
+title: "[Decommission Hub][{{ deadline }}] {{ HUB NAME }}"
+
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Summary
+        <!-- Please provide a short, one-sentence summary around why this Hub should be decommissioned.
+        Usually, it is because it was a hub that we created for a workshop/conference and the event has now passed. -->
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Provide a short, one-sentence summary around why this Hub should be decommissioned.
+      placeholder: e.g., The hub was created for a workshop/conference and the event has now passed.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Info
+  - type: input
+    id: community_representative
+    attributes:
+      label: Community Representative
+      description: The GitHub ID of the current representative for the Hub and Community, e.g. @octocat
+      placeholder: @octocat
+    validations:
+      required: true
   - type: input
     id: new_hub_issue_link
     attributes:
