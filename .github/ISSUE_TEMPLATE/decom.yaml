@@ -55,7 +55,6 @@ body:
     attributes:
       label: Confirm with Community Representative what should happen with existing user data
       multiple: false
-      required: true
       options:
         - Data should be migrated
         - Data should be deleted
