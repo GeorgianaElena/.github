@@ -124,11 +124,9 @@ body:
       description: |
         (optional) A clear and concise list of steps to take to close this issue.
       value: |
-        ```[tasklist]
         - [ ] Was all the info filled in above?
         - [ ] Quotas from the cloud provider are high-enough to handle expected usage?
         - [ ] 
-        ```
     validations:
       required: true
 
@@ -139,9 +137,7 @@ body:
       description: |
         The Definition of Done. What must be true to consider this task complete?
       value: |
-        ```[tasklist]
         - [ ] All the tasks have been completed
         - [ ] 
-        ```
     validations:
       required: true
